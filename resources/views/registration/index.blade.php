@@ -15,7 +15,7 @@
 		type:<br> <input type="radio" name="type" value="admin" >Admin||<input type="radio" name="type" value="scout" >Scout||<input type="radio" name="type" value="user" >General User <br>
 		<input type="submit" name="submit" value="Submit" >
 	</form>
-	<a href="/register">Register</a>
+	<a href="/">back</a>
 	<h3>{{session('msg')}}</h3>
 </body>
 </html>

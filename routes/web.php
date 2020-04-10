@@ -14,6 +14,7 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', 'LoginController@index');
+Route::get('/', 'LoginController@index')->name('login.index');
 
 Route::get('/registration', 'registrationController@index');
+Route::post('/registration', 'registrationController@register')->name('register.user');
