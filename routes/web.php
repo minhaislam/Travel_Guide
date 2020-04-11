@@ -14,7 +14,16 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', 'LoginController@index')->name('login.index');
+Route::get('/', 'LoginController@index')->name('login.index')
+;
+Route::post('/', 'LoginController@login');
 
 Route::get('/registration', 'registrationController@index');
 Route::post('/registration', 'registrationController@register')->name('register.user');
+Route::group(['middleware'=>['sess']], function(){
+Route::get('/admin', 'AdminController@index')->name('admin.index');
+Route::get('/scout', 'ScoutController@index')->name('scout.index');
+Route::get('/user', 'UserController@index')->name('user.index');
+});
+Route::get('/logout', 'LogoutController@index')->name('logout.index')
+;

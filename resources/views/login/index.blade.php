@@ -9,7 +9,7 @@
 		<!-- @csrf -->
 		<!--{{ csrf_field()}} -->	
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
-		Username: <input type="text" name="user_name" > <br>
+		Username: <input type="text" name="email" > <br>
 		Password: <input type="password" name="password" ><br>
 		<input type="submit" name="submit" value="Submit" >
 	</form>
