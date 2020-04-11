@@ -5,7 +5,7 @@
 </head>
 <body>	
 
-	<h1>Welcome Home!</h1>&nbsp
+	<h1>Profile!</h1>&nbsp
 	<a href="{{route('scout.index')}}">Back</a> |
 	<a href="/logout">Logout</a> 
 
@@ -28,8 +28,12 @@
 			<td>{{$std->password}}</td>
 		</tr>
 		<tr>
-			<td>Tyoe</td>
+			<td>Type</td>
 			<td>{{$std->type}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="{{route('profile1.edit',$std->id)}}">Edit</a></td>
 		</tr>
 	</table>
 

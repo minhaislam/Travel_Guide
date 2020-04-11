@@ -21,19 +21,19 @@ class LoginController extends Controller
         
         if($user != null){
         	if($user->type=='admin'){
-        		$req->session()->put('user_name',$user->user_name);
-                $req->session()->put('id',$user->id);
+        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
+                
                 
             return redirect()->route('admin.index');
         	}
         	elseif($user->type=='scout'){
-        		$req->session()->put('user_name',$user->user_name);
-                $req->session()->put('id',$user->id);
+        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
+             
             return redirect()->route('scout.index');
         	}
         	elseif($user->type=='user'){
-        		$req->session()->put('user_name',$user->user_name);
-                $req->session()->put('id',$user->id);
+        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
+               
             return redirect()->route('user.index');
         	}
             
