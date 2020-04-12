@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><a href="{{route('profile1.edit',$std->id)}}">Edit</a></td>
+			<td><a href="{{route('profile1.edit',request()->session()->get('user')->id )}}">Edit</a></td>
 		</tr>
 	</table>
 

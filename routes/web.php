@@ -21,13 +21,13 @@ Route::post('/login', 'LoginController@login');
 
 Route::get('/registration', 'registrationController@index');
 Route::post('/registration', 'registrationController@register')->name('register.user');
-Route::group(['middleware' => ['sess']], function(){
+Route::group(['middleware'=> ['sess']], function(){
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/scout', 'ScoutController@index')->name('scout.index');
 Route::get('/user', 'UserController@index')->name('user.index');
 Route::get('/admin/profile/{id}', 'AdminController@profile')->name('profile.admin');
-Route::get('/scout/profile{id}', 'ScoutController@profile')->name('profile.scout');
-Route::get('/user/profile', 'UserController@profile')->name('profile.user');
+Route::get('/scout/profile/{id}', 'ScoutController@profile')->name('profile.scout');
+Route::get('/user/profile/{id}', 'UserController@profile')->name('profile.user');
 Route::get('/admin/view_users', 'AdminController@list')->name('home.list');
 Route::get('/admin/delete/{id}', 'AdminController@delete')->name('admin.delete');
 Route::post('/admin/delete/{id}', 'AdminController@destroy');
@@ -37,6 +37,10 @@ Route::get('/admin/edit/{id}', 'AdminController@edit')->name('profile.edit');
 Route::post('/admin/edit/{id}', 'AdminController@update');
 Route::get('/scout/edit/{id}', 'ScoutController@edit')->name('profile1.edit');
 Route::post('/scout/edit/{id}', 'ScoutController@update');
+
+
+Route::get('/user/edit/{id}', 'UserController@edit')->name('profile2.edit');
+Route::post('/user/edit/{id}', 'UserController@update');
 });
 Route::get('/logout', 'LogoutController@index')->name('logout.index')
 ;

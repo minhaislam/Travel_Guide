@@ -15,8 +15,8 @@ class SessionVerify
      */
    public function handle($request, Closure $next)
     {
-        if(!$request->session()->has('user_name')){
-            return redirect()->route('login.index');
+        if(!$request->session()->has('user')){
+            return redirect('/login');
         }else{
             return $next($request);
         }

@@ -6,7 +6,7 @@
 <body>	
 
 	<h1>Edit Page!</h1>&nbsp
-	<a href="{{route('profile.admin',session('id'))}}">Back</a> |
+	<a href="{{route('profile.scout', request()->session()->get('user')->id)}}">Back</a> |
 	<a href="/logout">Logout</a> 
 
 	<br>

@@ -20,21 +20,18 @@ class LoginController extends Controller
                     ->first();
         
         if($user != null){
+            $req->session()->put('user',$user);
         	if($user->type=='admin'){
-        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
-                
-                
-            return redirect()->route('admin.index');
+        		                             
+                return redirect()->route('admin.index');
         	}
-        	elseif($user->type=='scout'){
-        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
-             
-            return redirect()->route('scout.index');
+        	elseif($user->type=='scout'){   
+
+                return redirect()->route('scout.index');
         	}
-        	elseif($user->type=='user'){
-        		$req->session()->put('user_name',$user->user_name,'id',$user->id);
-               
-            return redirect()->route('user.index');
+        	elseif($user->type=='user'){    
+                      
+                return redirect()->route('user.index');
         	}
             
         }else{

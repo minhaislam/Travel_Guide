@@ -29,7 +29,7 @@
 		</tr>
 		<tr>
 			<td>Tyoe</td>
-			<td>{{$std->type}}</td>
+			<td><a href="{{route('profile2.edit',request()->session()->get('user')->id )}}">Edit</a></td>
 		</tr>
 	</table>
 

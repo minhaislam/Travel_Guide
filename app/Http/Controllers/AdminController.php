@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-     public function index(){
+     public function index(Request $req){
+        
     	
     	return view('admin.index');
     }

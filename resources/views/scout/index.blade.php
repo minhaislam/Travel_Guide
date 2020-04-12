@@ -4,8 +4,10 @@
 	<title>Scout Home</title>
 </head>
 <body>
-	<h1>Welcome Scout!{{session('user_name')}}:{{session('id')}} </h1><br>
-	<a href="{{route('profile.scout',session('id'))}}">Profile</a>||
+	<h1>Welcome {{ request()->session()->get('user')->type }}! 
+		{{ request()->session()->get('user')->user_name }} </h1><br>
+	<a href="{{route('profile.scout',request()->session()->get('user')->id )}}">Profile</a> 
+	||
 	<a href="/logout">Logout</a>
 
 </body>
