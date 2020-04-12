@@ -47,7 +47,12 @@
 		</tr>
 		<tr>
 			<td>Added by</td>
+			@if($std->admin_name == NULL)
+
 			<td><input type="text" name="admin_name" value="{{ request()->session()->get('user')->user_name }}"></td>
+			@else
+			<td><input type="text" name="admin_name" value="{{ $std->admin_name }}"></td>
+			@endif
 		</tr>
 		<tr>
 			<td colspan="2"> <input type="submit" name="submit"></td>
