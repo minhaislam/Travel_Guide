@@ -14,6 +14,26 @@ class ScoutController extends Controller
     	return view('scout.index');
     }
 
+    public function addinfo(Request $req){
+        
+        
+        return view('scout.addinfo');
+    }
+
+    public function add(Request $req){
+
+        $insert = DB::table('add_info')->insertGetId(
+    ['country' => $req->country, 'city' => $req->city, 'placename' => $req->placename,'cost' => $req->cost,'travelmedium' => $req->travelmedium,'description' => $req->description,'scout_name' => $req->scout_name]
+);
+                         
+        if($insert){
+            return redirect()->route('scout.index')->with('message','added');
+        }else{
+            return redirect()->route('scout.index')->with('message','not added');
+        }
+
+    }
+
      public function profile($id){
        
         $user = DB::table('users')->find($id);  

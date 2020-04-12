@@ -31,6 +31,17 @@ class AdminController extends Controller
         }
 
     }
+    public function delete1($id){
+        $delete=DB::table('add_info')->where('id', $id)->delete();
+        if ($delete) {
+             
+            return redirect()->route('admin.requests')->with('message','rejected');
+        }else{
+            
+            return redirect()->route('admin.requests');
+        }
+
+    }
 
      public function add(){
                 return view('admin.createuser');
@@ -70,6 +81,41 @@ class AdminController extends Controller
             return redirect()->route('login.index');
         }else{
             return redirect()->route('profile.edit');
+        }
+
+    }
+
+    public function requests(){
+        $users = DB::table('add_info')->get();
+        return view('admin.requests', ['std' => $users]);
+    }
+
+    public function accept1($id, Request $req){
+       $update= DB::table('add_info')
+            ->where('id', $id)
+            ->update(['country' => $req->country, 'city' => $req->city, 'placename' => $req->placename,'cost' => $req->cost,'travelmedium' => $req->travelmedium,'description' => $req->description,'scout_name' => $req->scout_name]);
+
+             if($update){
+            return redirect()->route('login.index');
+        }else{
+            return redirect()->route('profile.edit');
+        }
+
+    }
+    public function accept($id){
+         $user = DB::table('add_info')->find($id);  
+        return view('admin.accept', ['std' => $user]);
+    }
+
+    public function confirm($id, Request $req){
+       $update= DB::table('add_info')
+            ->where('id', $id)
+            ->update(['country' => $req->country, 'city' => $req->city, 'placename' => $req->placename,'cost' => $req->cost,'travelmedium' => $req->travelmedium,'description' => $req->description,'scout_name' => $req->scout_name,'admin_name' => $req->admin_name]);
+
+             if($update){
+            return redirect()->route('admin.requests')->with('message','done');
+        }else{
+            return redirect()->route('admin.requests')->with('message','Not done');
         }
 
     }
