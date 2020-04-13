@@ -25,6 +25,8 @@
 			<th>description</th>
 			<th>scout_name</th>
 			<th>Action</th>
+
+
 			
 		</tr>
 		@break
@@ -70,6 +72,12 @@
 			<th>scout_name</th>
 			<th>admin_name</th>
 			<th>Action</th>
+			@foreach($comments as $comment)
+			@if($comment->place_id != NULL )
+			<th>Comments</th>
+			@break
+			@endif
+				@endforeach
 			
 		</tr>
 		@break
@@ -91,10 +99,22 @@
 			<td>{{ $s->description }}</td>
 			<td>{{ $s->scout_name }}</td>
 			<td>{{ $s->admin_name }}</td>
+
+			
 			<td>
 				
 				<a href="{{route('admin.accept', $s->id)}}">Edit</a>||<button><a href="{{url('admin/reject/'.$s->id)}}">Delete</a></button>
 			</td>
+
+			@foreach($comments as $comment)
+			@if($comment->place_id == $s->id )
+			<td>{{$comment->comment}}||
+				<a href="{{url('admin/deletecomment/'.$comment->id)}}">Delete</a>
+		
+			</td>
+			
+			@endif
+			@endforeach
 		</tr>
 			@endif
 		@endforeach

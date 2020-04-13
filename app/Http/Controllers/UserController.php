@@ -42,8 +42,24 @@ class UserController extends Controller
        
 public function details($id){
         $user = DB::table('add_info')->find($id);
+       $users = DB::table('user_comment')->get();
         
-        return view('User.details', ['s' => $user]);
+        return view('User.details', ['s' => $user , 'std' => $users ]);
 }
+
+
+public function comment($id,Request $req){
+
+        $insert = DB::table('user_comment')->insertGetId(
+    ['comment' => $req->comment, 'place_id' => $req->place_id, 'commentator_id' => $req->commentator_id]
+);
+                         
+        if($insert){
+            return redirect()->route('user.details',['id'=>$id])->with('message','comment posted');
+        }else{
+            return redirect()->route('user.details',['id'=>$id])->with('message','comment not posted');
+        }
+
+    }
 
 }

@@ -42,6 +42,17 @@ class AdminController extends Controller
         }
 
     }
+    public function delete2($id){
+        $delete=DB::table('user_comment')->where('id', $id)->delete();
+        if ($delete) {
+             
+            return redirect()->route('admin.requests')->with('message','rejected');
+        }else{
+            
+            return redirect()->route('admin.requests');
+        }
+
+    }
 
      public function add(){
                 return view('admin.createuser');
@@ -87,7 +98,8 @@ class AdminController extends Controller
 
     public function requests(){
         $users = DB::table('add_info')->get();
-        return view('admin.requests', ['std' => $users]);
+         $user = DB::table('user_comment')->get();
+        return view('admin.requests', ['std' => $users, 'comments' => $user]);
     }
 
     public function accept1($id, Request $req){

@@ -39,6 +39,7 @@ Route::get('/admin/requests', 'AdminController@requests')->name('admin.requests'
 Route::get('/admin/accept{id}', 'AdminController@accept')->name('admin.accept');
 Route::post('/admin/accept{id}','AdminController@confirm');
 Route::get('admin/reject/{id}', 'AdminController@delete1');
+Route::get('admin/deletecomment/{id}', 'AdminController@delete2');
 
 //Scout:
 Route::get('/scout', 'ScoutController@index')->name('scout.index');
@@ -56,3 +57,4 @@ Route::post('/user/edit/{id}', 'UserController@update');
 Route::get('/logout', 'LogoutController@index')->name('logout.index');
 
 Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
+Route::post('/user/details/{id}', 'UserController@comment')->name('user.comment');
