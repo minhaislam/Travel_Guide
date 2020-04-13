@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 07:46 PM
+-- Generation Time: Apr 13, 2020 at 12:35 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -21,6 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `travel_guide`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `add_info`
+--
+
+CREATE TABLE `add_info` (
+  `id` int(5) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `placename` varchar(255) NOT NULL,
+  `cost` int(5) NOT NULL,
+  `travelmedium` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `scout_name` varchar(255) NOT NULL,
+  `admin_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `add_info`
+--
+
+INSERT INTO `add_info` (`id`, `country`, `city`, `placename`, `cost`, `travelmedium`, `description`, `scout_name`, `admin_name`) VALUES
+(1, 'Bangladesh', 'Dhaka', 'Cox\'s Bazar', 7000, 'Bus/Plane/Private Car', 'One of the most beautiful place in the world', 'habib_rahi', 'minhaj_islam'),
+(3, 'Bangladesh', 'Barishal', 'Kuakata', 55000, 'Bus/Boat', 'Another beach located in barishal', 'habib_rahi', 'minhaj_islam'),
+(6, 'Bangladesh', 'Sunamgonj,Sylhet', 'tanguar haor', 5500, 'Bus/Train', 'A beautiful Lake', 'habib_rahi', NULL);
 
 -- --------------------------------------------------------
 
@@ -44,12 +71,18 @@ INSERT INTO `users` (`id`, `email`, `user_name`, `password`, `type`) VALUES
 (5, 'habib@gmail.com', 'habib_rahi', '123456', 'scout'),
 (6, 'ratul@gmail.com', 'ratul', '123456', 'user'),
 (7, 'min@gmail.com', 'min_95', '123456', 'scout'),
-(8, 'minhajislam95@gmail.com', 'minhaj_islam', '123456', 'admin'),
+(8, 'minhajislam95@gmail.com', 'minhaj_islam', '123123', 'admin'),
 (9, 'Rashiq@gmail.com', 'rashiq', '123456', 'admin');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `add_info`
+--
+ALTER TABLE `add_info`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -60,6 +93,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `add_info`
+--
+ALTER TABLE `add_info`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

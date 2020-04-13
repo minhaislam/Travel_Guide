@@ -54,3 +54,5 @@ Route::get('/user/edit/{id}', 'UserController@edit')->name('profile2.edit');
 Route::post('/user/edit/{id}', 'UserController@update');
 });
 Route::get('/logout', 'LogoutController@index')->name('logout.index');
+
+Route::get('/user/details/{id}', 'UserController@details')->name('user.details');

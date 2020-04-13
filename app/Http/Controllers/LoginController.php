@@ -22,7 +22,7 @@ class LoginController extends Controller
         if($user != null){
             $req->session()->put('user',$user);
         	if($user->type=='admin'){
-        		                             
+        		                  
                 return redirect()->route('admin.index');
         	}
         	elseif($user->type=='scout'){   
@@ -30,7 +30,7 @@ class LoginController extends Controller
                 return redirect()->route('scout.index');
         	}
         	elseif($user->type=='user'){    
-                      
+                    
                 return redirect()->route('user.index');
         	}
             

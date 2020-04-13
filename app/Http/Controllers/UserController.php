@@ -10,8 +10,8 @@ class UserController extends Controller
 {
      public function index(Request $req){
      	
-    	
-    	return view('user.index');
+    	$users = DB::table('add_info')->get();
+    	return view('user.index',['std'=> $users]);
     }
 
     public function profile($id){
@@ -37,5 +37,13 @@ class UserController extends Controller
             return redirect()->route('profile2.edit');
         }
 
-    }
+    }   
+        
+       
+public function details($id){
+        $user = DB::table('add_info')->find($id);
+        
+        return view('User.details', ['s' => $user]);
+}
+
 }
