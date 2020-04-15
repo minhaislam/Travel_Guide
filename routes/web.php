@@ -58,3 +58,4 @@ Route::get('/logout', 'LogoutController@index')->name('logout.index');
 
 Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
 Route::post('/user/details/{id}', 'UserController@comment')->name('user.comment');
+Route::get('/user/searchresult', 'UserController@search')->name('user.searchresult');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\add_info;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -60,6 +61,35 @@ public function comment($id,Request $req){
             return redirect()->route('user.details',['id'=>$id])->with('message','comment not posted');
         }
 
+    }
+
+
+     public function search(){
+        $data = add_info::orderBy('country', 'asc');
+
+        if (request()->country != '') {
+            $data->where('country', request()->country);
+           
+        }
+
+        if (request()->city != '') {
+            $data->where('city', request()->city);
+            
+        }
+        
+        if (request()->placename != '') {
+            $data->where('placename', request()->placename);
+        }
+        
+        if (request()->cost != '') {
+            $data->where('cost', '<', request()->cost);
+
+        }
+
+        
+        return view('user.searchresult', ['result' => $data->get() ]);
+       
+    
     }
 
 }
