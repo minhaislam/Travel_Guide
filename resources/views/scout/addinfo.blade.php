@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<a href="{{route('home.list')}}">Back</a> |
+	<a href="{{route('scout.index')}}">Back</a> |
 	<a href="/logout">Logout</a> 
 	<h1>User Registration</h1>
 	<form method="post">

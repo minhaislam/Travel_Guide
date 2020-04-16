@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 05:11 PM
+-- Generation Time: Apr 16, 2020 at 06:49 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -50,7 +50,6 @@ INSERT INTO `add_info` (`id`, `country`, `city`, `placename`, `cost`, `travelmed
 (7, 'Bangladesh', 'Bogura', 'Mohosthangor', 4000, 'Bus', 'One of the ancient place of bengali history', 'habib_rahi', 'minhaj_islam'),
 (8, 'India', 'Agra', 'Tajmahal', 15000, 'Plane/Bus/Train', 'The mausoleum in Agra is India\'s most famous monument, and a sublime shrine to eternal love.', 'habib_rahi', 'minhaj_islam'),
 (9, 'India', 'Delhi', 'Red Fort', 12000, 'Bus/Train/Plane', 'Mughal architecture is famous for its beautiful gardens, which is the Hayat-Baksh-Bagh (life giving garden) with its pavilions in the case of the Red Fort', 'habib_rahi', 'minhaj_islam'),
-(10, 'Bangladesh', 'Khulna', 'Sundarbans', 5000, 'Bus/Train', 'The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal', 'habib_rahi', NULL),
 (11, 'Bangladesh', 'Dhaka', 'Lalbagh Fort', 500, 'Local Bus/Rickshaw', 'Lalbagh Fort (also Fort Aurangabad) is an incomplete 17th century Mughal fort complex that stands before the Buriganga River in the southwestern part of Dhaka, Bangladesh', 'habib_rahi', 'minhaj_islam'),
 (12, 'Bangladesh', 'Dhaka', 'Ahsan Monjil', 800, 'Local Bus/Rickshaw', 'Ahsan Manzil is one of the most significant architectural monuments of Bangladesh', 'habib_rahi', 'minhaj_islam');
 
@@ -108,16 +107,20 @@ INSERT INTO `user_comment` (`id`, `comment`, `place_id`, `commentator_id`) VALUE
 
 CREATE TABLE `wishlist` (
   `id` int(5) NOT NULL,
-  `checked_by` varchar(255) NOT NULL,
-  `place_id` varchar(255) NOT NULL
+  `checked_by` int(5) NOT NULL,
+  `place_id` int(5) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `placename` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wishlist`
 --
 
-INSERT INTO `wishlist` (`id`, `checked_by`, `place_id`) VALUES
-(1, '6', '12');
+INSERT INTO `wishlist` (`id`, `checked_by`, `place_id`, `country`, `city`, `placename`) VALUES
+(2, 6, 1, 'Bangladesh', 'Dhaka', 'Cox\'s Bazar'),
+(11, 6, 8, 'India', 'Agra', 'Tajmahal');
 
 --
 -- Indexes for dumped tables
@@ -173,7 +176,7 @@ ALTER TABLE `user_comment`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

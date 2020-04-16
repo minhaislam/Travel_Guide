@@ -12,7 +12,8 @@
 	<br>
 	
 	<table border="0">
-		
+		<form method="post">
+		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<tr>
 			<td>Country</td>
 			<td><input type="text" name="country" value="{{$country}}"></td>
@@ -30,8 +31,7 @@
 			<td>cost</td>
 			<td><input type="text" name="cost" value="{{$cost}} "></td>
 		</tr>
-		<form method="post">
-		<input type="hidden" name="_token" value="{{csrf_token()}}">
+		
 		<tr>
 			<td hidden="">ID</td>
 			<td><input type="text" name="place_id" hidden="" readonly value="{{$id}}"></td>

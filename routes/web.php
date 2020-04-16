@@ -61,5 +61,6 @@ Route::post('/user/details/{id}', 'UserController@comment')->name('user.comment'
 Route::get('/user/searchresult', 'UserController@search')->name('user.searchresult');
 Route::get('/user/checklist/{id}', 'UserController@checklist')->name('user.checklist');
 Route::post('/user/checklist/{id}', 'UserController@checklisted')->name('user.checklisted');
-Route::get('/user/wishlist/{id}', 'UserController@cwishlist')->name('user.checklist');
+Route::get('/user/wishlist/{id}', 'UserController@wishlist')->name('user.wishlist');
 
+Route::get('user/deletewish/{id}/{id2}', 'UserController@deletewish');

@@ -105,10 +105,34 @@ public function checklisted(){
         $data = new wishlist;
     $data->place_id = request()->place_id;
     $data->checked_by = request()->checked_by;
+    $data->country = request()->country;
+    $data->city = request()->city;
+    $data->placename = request()->placename;
     $data->save();
 
     return redirect()->route('user.index')->with('message','cwishlisted');
         
 }
+
+public function wishlist($id){
+        $wishlist = wishlist::where('checked_by',$id)
+                            ->get();           
+           return view('user.wishlist',['wishlist' => $wishlist]);
+       
+}
+
+
+public function deletewish($id,$id2){
+        $delete=DB::table('wishlist')->where('id', $id)->delete();
+        if ($delete) {
+             
+            return redirect()->route('user.wishlist',['id'=>$id2])->with('message','deleted');
+        }else{
+            
+            return redirect()->route('user.wishlist',['id'=>$id2])->with('message','not deleted');
+        }
+
+    }
+
 
 }
