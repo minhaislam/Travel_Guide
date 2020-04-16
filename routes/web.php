@@ -59,3 +59,7 @@ Route::get('/logout', 'LogoutController@index')->name('logout.index');
 Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
 Route::post('/user/details/{id}', 'UserController@comment')->name('user.comment');
 Route::get('/user/searchresult', 'UserController@search')->name('user.searchresult');
+Route::get('/user/checklist/{id}', 'UserController@checklist')->name('user.checklist');
+Route::post('/user/checklist/{id}', 'UserController@checklisted')->name('user.checklisted');
+Route::get('/user/wishlist/{id}', 'UserController@cwishlist')->name('user.checklist');
+

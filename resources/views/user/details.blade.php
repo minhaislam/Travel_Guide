@@ -40,7 +40,7 @@
 			
 			<td>
 				
-				<a href="">Book</a>
+				<a href="">Book</a>|||| <a href="{{url('user/checklist/'.$s->id)}}">Checklist</a>
 			</td>
 			@foreach($std as $st)
 			@if($st->place_id == $s->id )

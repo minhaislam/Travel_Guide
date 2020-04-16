@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 10:12 PM
+-- Generation Time: Apr 16, 2020 at 05:11 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -100,6 +100,25 @@ INSERT INTO `user_comment` (`id`, `comment`, `place_id`, `commentator_id`) VALUE
 (3, 'beautiful', 3, 6),
 (4, 'I would like to visit this place', 7, 6);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(5) NOT NULL,
+  `checked_by` varchar(255) NOT NULL,
+  `place_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `checked_by`, `place_id`) VALUES
+(1, '6', '12');
+
 --
 -- Indexes for dumped tables
 --
@@ -123,6 +142,12 @@ ALTER TABLE `user_comment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -143,6 +168,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_comment`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

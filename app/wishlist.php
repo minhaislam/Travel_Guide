@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class add_info extends Model
+class wishlist extends Model
 {
-    protected $table = 'add_info';
+    protected $table = 'wishlist';
     public $timestamps = false;
 }

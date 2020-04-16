@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\add_info;
+use App\wishlist;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -91,5 +92,23 @@ public function comment($id,Request $req){
        
     
     }
+
+
+    public function checklist($id){
+        $data = add_info::find($id);
+        //return $data;
+         return view('user.checklist', $data);
+        
+}
+
+public function checklisted(){
+        $data = new wishlist;
+    $data->place_id = request()->place_id;
+    $data->checked_by = request()->checked_by;
+    $data->save();
+
+    return redirect()->route('user.index')->with('message','cwishlisted');
+        
+}
 
 }
