@@ -16,9 +16,11 @@
 			<th>country</th>
 			<th>city</th>
 			<th>placename</th>
-			<th>cost</th>
+			
+
 			<th>travelmedium</th>
 			<th>description</th>
+			<th>Probable cost(taka)</th>
 			
 			<th>Action</th>
 			@foreach($std as $st)
@@ -34,13 +36,14 @@
 			<td>{{ $s->country }}</td>
 			<td>{{ $s->city }}</td>
 			<td>{{ $s->placename }}</td>
-			<td>{{ $s->cost }}</td>
+			
 			<td>{{ $s->travelmedium }}</td>
 			<td>{{ $s->description }}</td>
+			<td>{{ $s->cost }}/-</td>
 			
 			<td>
 				
-				<a href="">Book</a>|||| <a href="{{url('user/checklist/'.$s->id)}}">Checklist</a>
+				 <a href="{{url('user/checklist/'.$s->id)}}">Checklist</a>
 			</td>
 			@foreach($std as $st)
 			@if($st->place_id == $s->id )

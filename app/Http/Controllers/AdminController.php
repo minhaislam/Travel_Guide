@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Validator;
+use App\Http\Requests\UpdateValidation;
+use App\Http\Requests\ValidRequest;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -59,11 +62,10 @@ class AdminController extends Controller
 
     }
 
-    public function create(Request $req){
+    public function create(ValidRequest $req){
 
         $insert = DB::table('users')->insertGetId(
-    ['email' => $req->email, 'user_name' => $req->user_name, 'password' => $req->password,'type' => $req->type]
-);
+    ['email' => $req['email'],'user_name' => $req['user_name'],'password' => $req['password'],'type' => $req['type']]);
                          
         if($insert){
             return redirect()->route('home.list');
@@ -83,10 +85,10 @@ class AdminController extends Controller
         return view('admin.edit', ['std' => $user]);
     }
 
-    public function update($id, Request $req){
+    public function update($id, UpdateValidation $req){
        $update= DB::table('users')
             ->where('id', $id)
-            ->update(['email' => $req->email,'user_name' => $req->user_name,'password' => $req->password,'type' => $req->type]);
+            ->update(['email' => $req['email'],'user_name' => $req['user_name'],'password' => $req['password'],'type' => $req['type']]);
 
              if($update){
             return redirect()->route('login.index');

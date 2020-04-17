@@ -8,7 +8,9 @@
 	<h1>Edit Page!</h1>&nbsp
 	<a href="{{route('profile.admin', request()->session()->get('user')->id )}}">Back</a> |
 	<a href="/logout">Logout</a> 
-
+@foreach($errors->all() as $error)
+	<li>{{$error}}</li>
+	@endforeach
 	<br>
 	<form method="post">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">

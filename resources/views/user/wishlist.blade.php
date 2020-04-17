@@ -38,7 +38,7 @@
 			
 			<td>
 				
-				<a href="{{route('user.details', $list->id)}}">viewdetails</a>||<button><a href="{{url('user/deletewish/'.$list->id.'/'.request()->session()->get('user')->id)}}">Delete from wishlist</a></button>
+				<a href="{{route('user.details', $list->place_id)}}">viewdetails</a>||<button><a href="{{url('user/deletewish/'.$list->id.'/'.request()->session()->get('user')->id)}}">Delete from wishlist</a></button>
 			</td>
 			
 			

@@ -5,6 +5,9 @@
 </head>
 <body>
 	<h1>Login Page</h1>
+	@foreach($errors->all() as $error)
+	<li>{{$error}}</li>
+	@endforeach
 	<form method="post">
 		<!-- @csrf -->
 		<!--{{ csrf_field()}} -->	

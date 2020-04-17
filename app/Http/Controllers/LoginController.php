@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Validator;
+use App\Http\Requests\LoginValidation;
 use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
@@ -12,11 +14,11 @@ class LoginController extends Controller
     	
     	return view('login.index');
     }
-    public function login(Request $req){
+    public function login(LoginValidation $req){
     	
     	$user = DB::table('users')
-                    ->where('email', $req->email)
-                    ->where('password', $req->password)
+                    ->where('email', $req['email'])
+                    ->where('password', $req['password'])
                     ->first();
         
         if($user != null){
