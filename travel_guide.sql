@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2020 at 03:25 PM
+-- Generation Time: Apr 19, 2020 at 10:16 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -77,7 +77,8 @@ INSERT INTO `users` (`id`, `email`, `user_name`, `password`, `type`) VALUES
 (7, 'min@gmail.com', 'min_95', '123456', 'scout'),
 (8, 'minhajislam95@gmail.com', 'minhaj_islam', '123456', 'admin'),
 (9, 'Rashiq@gmail.com', 'rashiq', '123456', 'admin'),
-(14, 'maidul95@gmail.com', 'maidul_islam', '12121', 'scout');
+(14, 'maidul95@gmail.com', 'maidul_islam', '12121', 'scout'),
+(16, 'kinjo@g.com', 'kinjo', '123456', 'user');
 
 -- --------------------------------------------------------
 
@@ -165,7 +166,7 @@ ALTER TABLE `add_info`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user_comment`

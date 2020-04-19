@@ -20,7 +20,7 @@
 			<th>country</th>
 			<th>city</th>
 			<th>placename</th>
-			<th>cost</th>
+			<th>Probable cost</th>
 			<th>travelmedium</th>
 			<th>description</th>
 			<th>scout_name</th>
@@ -66,7 +66,7 @@
 			<th>country</th>
 			<th>city</th>
 			<th>placename</th>
-			<th>cost</th>
+			<th>Probable cost</th>
 			<th>travelmedium</th>
 			<th>description</th>
 			<th>scout_name</th>

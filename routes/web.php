@@ -21,12 +21,16 @@ Route::post('/login', 'LoginController@login');
 
 Route::get('/registration', 'registrationController@index');
 Route::post('/registration', 'registrationController@register')->name('register.user');
+Route::get('/logout', 'LogoutController@index')->name('logout.index');
 Route::group(['middleware'=> ['sess']], function(){
-Route::get('/admin', 'AdminController@index')->name('admin.index');
+
+
+	
+Route::get('/admin', 'AdminController@index')->name('admin.index')->middleware('type');
 
 
 Route::get('/admin/profile/{id}', 'AdminController@profile')->name('profile.admin');
-Route::get('/scout/profile/{id}', 'ScoutController@profile')->name('profile.scout');
+
 
 Route::get('/admin/view_users', 'AdminController@list')->name('home.list');
 Route::get('/admin/delete/{id}', 'AdminController@delete')->name('admin.delete');
@@ -41,20 +45,24 @@ Route::post('/admin/accept{id}','AdminController@confirm');
 Route::get('admin/reject/{id}', 'AdminController@delete1');
 Route::get('admin/deletecomment/{id}', 'AdminController@delete2');
 
+
+
 //Scout:
-Route::get('/scout', 'ScoutController@index')->name('scout.index');
+Route::get('/scout/profile/{id}', 'ScoutController@profile')->name('profile.scout');
+Route::get('/scout', 'ScoutController@index')->name('scout.index')->middleware('type');
 Route::get('/scout/edit/{id}', 'ScoutController@edit')->name('profile1.edit');
 Route::post('/scout/edit/{id}', 'ScoutController@update');
 Route::get('/scout/addinfo', 'ScoutController@addinfo')->name('scout.addinfo');
 Route::post('/scout/addinfo', 'ScoutController@add');
 
 //User:
-Route::get('/user', 'UserController@index')->name('user.index');
+
+Route::get('/user', 'UserController@index')->name('user.index')->middleware('type');
 Route::get('/user/profile/{id}', 'UserController@profile')->name('profile.user');
 Route::get('/user/edit/{id}', 'UserController@edit')->name('profile2.edit');
 Route::post('/user/edit/{id}', 'UserController@update');
-});
-Route::get('/logout', 'LogoutController@index')->name('logout.index');
+
+
 
 Route::get('/user/details/{id}', 'UserController@details')->name('user.details');
 Route::post('/user/details/{id}', 'UserController@comment')->name('user.comment');
@@ -64,3 +72,5 @@ Route::post('/user/checklist/{id}', 'UserController@checklisted')->name('user.ch
 Route::get('/user/wishlist/{id}', 'UserController@wishlist')->name('user.wishlist');
 
 Route::get('user/deletewish/{id}/{id2}', 'UserController@deletewish');
+
+});
